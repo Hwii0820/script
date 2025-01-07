@@ -8,7 +8,7 @@ public class DoorManager : MonoBehaviour
 
     private void Start()
     {
-        playerMover = FindObjectOfType<PlayerMover>(); // PlayerMover Ã£±â
+        playerMover = FindObjectOfType<PlayerMover>(); // PlayerMover Ã£ï¿½ï¿½
         if (playerMover == null)
         {
             Debug.LogError("PlayerMover component not found in the scene!");
@@ -42,21 +42,21 @@ public class DoorManager : MonoBehaviour
         {
             Door currentDoor = allDoors[i];
 
-            // ¿ÞÂÊ ³¡ ¹æÀÇ LeftDoor´Â ¿¬°áÇÏÁö ¾ÊÀ½
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ LeftDoorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (i == 0 && currentDoor.name.Contains("LeftDoor"))
             {
                 Debug.LogWarning($"{currentDoor.doorId} ({currentDoor.name}) is not connected (Left end).");
                 continue;
             }
 
-            // ¿À¸¥ÂÊ ³¡ ¹æÀÇ RightDoor´Â ¿¬°áÇÏÁö ¾ÊÀ½
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ RightDoorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (i == allDoors.Count - 1 && currentDoor.name.Contains("RightDoor"))
             {
                 Debug.LogWarning($"{currentDoor.doorId} ({currentDoor.name}) is not connected (Right end).");
                 continue;
             }
 
-            // LeftDoor ¿¬°á (´ÙÀ½ ¹æÀÇ RightDoor¿Í ¿¬°á)
+            // LeftDoor ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ RightDoorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
             if (currentDoor.name.Contains("LeftDoor") && i + 1 < allDoors.Count)
             {
                 Door nextDoor = allDoors[i + 1];
@@ -64,11 +64,11 @@ public class DoorManager : MonoBehaviour
                 {
                     currentDoor.connectedDoorId = nextDoor.doorId;
                     nextDoor.connectedDoorId = currentDoor.doorId;
-                    Debug.Log($"Connected {currentDoor.doorId} ({currentDoor.name}) ¡ê {nextDoor.doorId} ({nextDoor.name})");
+                    Debug.Log($"Connected {currentDoor.doorId} ({currentDoor.name}) ï¿½ï¿½ {nextDoor.doorId} ({nextDoor.name})");
                 }
             }
 
-            // RightDoor ¿¬°á (ÀÌÀü ¹æÀÇ LeftDoor¿Í ¿¬°á)
+            // RightDoor ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ LeftDoorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
             if (currentDoor.name.Contains("RightDoor") && i - 1 >= 0)
             {
                 Door previousDoor = allDoors[i - 1];
@@ -76,7 +76,7 @@ public class DoorManager : MonoBehaviour
                 {
                     currentDoor.connectedDoorId = previousDoor.doorId;
                     previousDoor.connectedDoorId = currentDoor.doorId;
-                    Debug.Log($"Connected {currentDoor.doorId} ({currentDoor.name}) ¡ê {previousDoor.doorId} ({previousDoor.name})");
+                    Debug.Log($"Connected {currentDoor.doorId} ({currentDoor.name}) ï¿½ï¿½ {previousDoor.doorId} ({previousDoor.name})");
                 }
             }
         }
